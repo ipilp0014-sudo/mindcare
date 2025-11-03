@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindCare - Registrasi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="register-container">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAADH9C5V..." alt="MindCare Logo" class="logo">
+  <h1>Selamat Datang di MindCare</h1>
+  <form id="registerForm">
+    <label>Nama Lengkap:</label>
+    <input type="text" name="nama" required>
+    <label>Usia:</label>
+    <input type="number" name="usia" required>
+    <label>Jenis Kelamin:</label>
+    <select name="gender" required>
+      <option value="">Pilih</option>
+      <option value="Pria">Pria</option>
+      <option value="Wanita">Wanita</option>
+    </select>
+    <label>Merokok:</label>
+    <select name="merokok" required>
+      <option value="">Pilih</option>
+      <option value="Ya">Ya</option>
+      <option value="Tidak">Tidak</option>
+    </select>
+    <label>Alkohol:</label>
+    <select name="alkohol" required>
+      <option value="">Pilih</option>
+      <option value="Ya">Ya</option>
+      <option value="Tidak">Tidak</option>
+    </select>
+    <button type="submit">Mulai Survey</button>
+  </form>
+</div>
+
+<script>
+document.getElementById('registerForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const user = {};
+  formData.forEach((value,key)=>{user[key]=value;});
+  localStorage.setItem('user',JSON.stringify(user));
+  window.location.href='index.html';
+});
+</script>
+</body>
+</html>
